@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustLedger | Autonomous AI Payment & Project Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">TrustLedger</div>
+            <nav>
+                <a href="#problem">The Challenge</a>
+                <a href="#solution">The AI Agent</a>
+                <a href="#features">Features</a>
+                <button id="navGetAccessBtn" class="btn btn-primary btn-sm">Get Early Access</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content">
+                <div class="badge">Introducing Autonomous AI Intermediation</div>
+                <h1 class="hero-title">Eliminate the <span class="highlight">Trust Gap</span> in Freelance Work.</h1>
+                <p class="hero-subtitle">
+                    TrustLedger is an Autonomous AI Payment & Project Agent serving as a neutral, intelligent bridge
+                    between employers and freelancers.
+                </p>
+                <div class="hero-actions">
+                    <button id="heroStartEscrowBtn" class="btn btn-primary">Start Escrow</button>
+                    <a href="#solution" class="btn btn-secondary">Learn How it Works</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Abstract UI Representation -->
+                <div class="glass-orb"></div>
+                <div class="dashboard-mockup glass-panel">
+                    <div class="mockup-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <div class="title">Active Milestone</div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="status-row">
+                            <span class="label">Task: Backend API</span>
+                            <span class="status verified">Verified by AI</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="payment-row">
+                            <span class="label">Payment Released</span>
+                            <span class="amount">$1,200.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section id="problem" class="section container">
+            <div class="section-header text-center">
+                <h2 class="section-title">The Friction of Manual Intermediation</h2>
+                <p class="section-subtitle">Why the current landscape is broken</p>
+            </div>
+            <div class="grid grid-2">
+                <div class="glass-card problem-card">
+                    <div class="icon-box">❌</div>
+                    <h3>For Employers</h3>
+                    <p>Employers struggle to translate complex needs into actionable milestones. Intensive human
+                        oversight is required to manage manual escrow systems.</p>
+                </div>
+                <div class="glass-card problem-card">
+                    <div class="icon-box">⚠️</div>
+                    <h3>For Freelancers</h3>
+                    <p>Freelancers face constant payment uncertainty and subjective work evaluations leading to payment
+                        delays, project abandonment, and unresolved disputes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section id="solution" class="section container">
+            <div class="section-header text-center">
+                <h2 class="section-title">The Objective: Autonomous Intermediary</h2>
+                <p class="section-subtitle">A project manager, financial custodian, and QA officer rolled into one.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon gradient-1">🤖</div>
+                    <h3>Project Manager</h3>
+                    <p>Objectively translates needs into actionable milestones and tracks real-time progress without
+                        bias.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon gradient-2">🛡️</div>
+                    <h3>Financial Custodian</h3>
+                    <p>Holds funds securely and programs automatic release upon cryptographic or AI-verified milestone
+                        completion.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon gradient-3">🔍</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Evaluates work against predefined objective criteria, ensuring capital is exchanged only for
+                        verified value.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section container">
+            <div class="glass-panel cta-panel text-center">
+                <h2>Ready for Frictionless Collaboration?</h2>
+                <p>Join the waitlist to be among the first to experience the future of autonomous project
+                    intermediation.</p>
+                <form class="cta-form" id="waitlistForm">
+                    <input type="email" id="emailInput" placeholder="Enter your email address..." required>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Request Access</button>
+                </form>
+                <div id="formSuccess" class="form-message hidden">
+                    <span class="icon">✅</span> You've been added to the waitlist. We'll be in touch!
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">TrustLedger</div>
+                <p>Objective, real-time oversight for the freelance economy.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Security</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Role Selection Modal Overlay -->
+    <div id="roleSelectionModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 600px; text-align: center;">
+            <div class="modal-header" style="justify-content: center; position: relative;">
+                <h2 style="margin: 0;">Choose Your Role</h2>
+                <button class="modal-close" id="closeRoleModalBtn"
+                    style="position: absolute; right: 0; top: -5px;">&times;</button>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Select how you plan to use TrustLedger to
+                customize your dashboard experience.</p>
+
+            <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
+                <div class="role-card" data-role="employer"
+                    style="padding: 1.5rem; border: 2px solid var(--border-glass); border-radius: 16px; cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.03);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🏢</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #fff;">Employer / Client</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">I want to hire talent, fund
+                        smart escrows, and oversee project milestones.</p>
+                </div>
+
+                <div class="role-card" data-role="freelancer"
+                    style="padding: 1.5rem; border: 2px solid var(--border-glass); border-radius: 16px; cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.03);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">💻</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #fff;">Freelancer / Talent</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">I want to complete tasks,
+                        submit PRs, and get paid automatically via escrow.</p>
+                </div>
+            </div>
+
+            <button id="enterDashboardBtn" class="btn btn-primary"
+                style="width: 100%; opacity: 0.5; pointer-events: none; transition: opacity 0.3s;">Select a role to
+                continue</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

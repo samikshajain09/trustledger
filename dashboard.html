@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustLedger | Autonomous AI Agent Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .role-section {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <div class="logo">TrustLedger</div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-target="view-overview"><span class="icon">📊</span>
+                    Overview</a>
+                <a href="#" class="nav-item" data-target="view-projects"><span class="icon">📁</span> Active
+                    Projects</a>
+                <a href="#" class="nav-item" data-target="view-escrows"><span class="icon">🛡️</span> Escrow Vaults</a>
+                <a href="#" class="nav-item" data-target="view-settings"><span class="icon">⚙️</span> Settings</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item text-danger"><span class="icon">🚪</span> Log Out</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="dashboard-header glass-panel">
+                <div class="header-search">
+                    <input type="text" placeholder="Search projects, escrows, or AI logs...">
+                </div>
+                <div class="header-user">
+                    <div class="user-avatar">EM</div>
+                    <span class="user-name">Employer Mode</span>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+
+                <!-- Overview View -->
+                <div class="dashboard-view" id="view-overview">
+                    <div class="dashboard-title-row">
+                        <h1>Project 042: E-Commerce Backend Refactor</h1>
+                        <span class="badge badge-active">Status: In Progress</span>
+                    </div>
+
+                    <div class="grid grid-3 top-stats">
+                        <div class="glass-card stat-card">
+                            <span class="stat-label">Total Escrow Vault</span>
+                            <h2 class="stat-value">$12,500.00</h2>
+                            <span class="stat-trend positive">+ Fully Funded</span>
+                        </div>
+                        <div class="glass-card stat-card">
+                            <span class="stat-label">AI Agent Status</span>
+                            <h2 class="stat-value text-accent">Monitoring</h2>
+                            <span class="stat-trend">Last check: 2 mins ago</span>
+                        </div>
+                        <div class="glass-card stat-card">
+                            <span class="stat-label">Milestones Completed</span>
+                            <h2 class="stat-value">2 / 5</h2>
+                            <span class="stat-trend">On Schedule</span>
+                        </div>
+                    </div>
+
+                    <!-- Active AI Evaluation Panel -->
+                    <div class="glass-panel agent-panel mt-4">
+                        <div class="panel-header border-bottom">
+                            <h3>🤖 AI Agent Output Log</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="log-entry">
+                                <span class="timestamp">[10:42 AM]</span>
+                                <span class="log-text">Analyzing GitHub PR #104 (Database Schema Migration)</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="timestamp">[10:43 AM]</span>
+                                <span class="log-text">Running automated test suite against staging
+                                    environment...</span>
+                            </div>
+                            <div class="log-entry success">
+                                <span class="timestamp">[10:45 AM]</span>
+                                <span class="log-text">✓ Tests passing. 98% code coverage detected.</span>
+                            </div>
+                            <div class="log-entry action-req">
+                                <span class="timestamp">[10:45 AM]</span>
+                                <span class="log-text">Milestone 3 criteria met. Initiating $2,500 secure fund release
+                                    via
+                                    smart contract.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role-Specific Views: Employer -->
+                    <div class="role-section employer-only mt-4">
+                        <div class="dashboard-title-row">
+                            <h2>AI Client Strategy Generator</h2>
+                            <span class="badge badge-active" style="background: var(--accent-violet);">New Feature</span>
+                        </div>
+                        <div class="glass-card mt-4 mb-4" style="border-top: 4px solid var(--accent-violet);">
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Describe your project needs and budget below. The TrustLedger AI Client will automatically generate a strategic roadmap, split your project into logical milestones, and calculate the appropriate funding distribution.</p>
+                            
+                            <form id="aiRoadmapForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Project Description</label>
+                                    <textarea id="aiProjectDesc" required rows="3" placeholder="e.g. I need a full-stack e-commerce application with a payment gateway, user authentication, and admin dashboard..."
+                                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;"></textarea>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Total Budget ($)</label>
+                                        <input type="number" id="aiTotalBudget" required placeholder="5000" min="100"
+                                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Desired Milestones</label>
+                                        <input type="number" id="aiMilestoneCount" required placeholder="1-5 (Optional, AI will decide if blank)" min="1" max="10"
+                                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                                    </div>
+                                </div>
+                                <button type="submit" id="generateRoadmapBtn" class="btn btn-primary mt-2" style="background: var(--gradient-primary);">Generate Smart Roadmap & Funding Split ✨</button>
+                            </form>
+
+                            <!-- Generated Roadmap Area -->
+                            <div id="aiGeneratedRoadmapArea" style="display: none; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-glass);">
+                                <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Generated AI Roadmap</h3>
+                                <div id="aiMilestoneList" style="display: flex; flex-direction: column; gap: 1rem;">
+                                    <!-- Milestones injected here via JS -->
+                                </div>
+                                <button id="applyRoadmapBtn" class="btn btn-secondary mt-4" style="width: 100%; border-color: var(--success); color: var(--success);">Accept Roadmap & Select Freelancer</button>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-title-row">
+                            <h2>Top Freelancers Directory</h2>
+                        </div>
+                        <div class="grid grid-2 mt-4" id="freelancerDirectory">
+                            <!-- Freelancer Card 1 -->
+                            <div class="glass-card freelancer-item">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h3 style="margin-bottom: 0.2rem;">AlphaDev (John Doe)</h3>
+                                        <p style="font-size: 0.9rem; color: var(--accent-cyan); margin: 0;">Full-Stack
+                                            Web3 Developer</p>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <p style="font-size: 1.2rem; color: var(--accent-blue); margin-bottom: 0;">4.9/5
+                                            ⭐</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">24
+                                            Contracts Completed</p>
+                                    </div>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                                    Specializes in React, Node.js, and Solidity smart contracts. High quality, punctual
+                                    delivery.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary btn-sm open-employer-contract-btn" style="flex: 1;"
+                                        data-freelancer="AlphaDev (John Doe)">Propose Contract</button>
+                                    <button class="btn btn-secondary btn-sm open-employer-chat-btn"
+                                        style="flex: 1; border-color: var(--accent-blue);"
+                                        data-freelancer="AlphaDev (John Doe)">💬 Chat</button>
+                                </div>
+                            </div>
+
+                            <!-- Freelancer Card 2 -->
+                            <div class="glass-card freelancer-item">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h3 style="margin-bottom: 0.2rem;">DesignNinja (Sarah Lee)</h3>
+                                        <p style="font-size: 0.9rem; color: var(--accent-violet); margin: 0;">UI/UX
+                                            Product Designer</p>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <p style="font-size: 1.2rem; color: var(--accent-blue); margin-bottom: 0;">4.8/5
+                                            ⭐</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">18
+                                            Contracts Completed</p>
+                                    </div>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                                    Expert in Figma, framer, and building beautiful glassmorphism interfaces.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary btn-sm open-employer-contract-btn" style="flex: 1;"
+                                        data-freelancer="DesignNinja (Sarah Lee)">Propose Contract</button>
+                                    <button class="btn btn-secondary btn-sm open-employer-chat-btn"
+                                        style="flex: 1; border-color: var(--accent-blue);"
+                                        data-freelancer="DesignNinja (Sarah Lee)">💬 Chat</button>
+                                </div>
+                            </div>
+
+                            <!-- Freelancer Card 3 -->
+                            <div class="glass-card freelancer-item">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h3 style="margin-bottom: 0.2rem;">CyberSecPro (Mike T.)</h3>
+                                        <p style="font-size: 0.9rem; color: var(--success); margin: 0;">Security Auditor
+                                        </p>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <p style="font-size: 1.2rem; color: var(--accent-blue); margin-bottom: 0;">4.7/5
+                                            ⭐</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">12
+                                            Contracts Completed</p>
+                                    </div>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Deep
+                                    dives into codebases to find vulnerabilities before they are exploited.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary btn-sm open-employer-contract-btn" style="flex: 1;"
+                                        data-freelancer="CyberSecPro (Mike T.)">Propose Contract</button>
+                                    <button class="btn btn-secondary btn-sm open-employer-chat-btn"
+                                        style="flex: 1; border-color: var(--accent-blue);"
+                                        data-freelancer="CyberSecPro (Mike T.)">💬 Chat</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role-Specific Views: Freelancer -->
+                    <div class="role-section freelancer-only mt-4">
+                        <div class="grid grid-2">
+                            <!-- Freelancer Profile -->
+                            <div>
+                                <div class="dashboard-title-row">
+                                    <h2>My Freelancer Profile</h2>
+                                </div>
+                                <div class="glass-card mt-4">
+                                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                        <strong>Name:</strong> <span id="displayProfileName"
+                                            style="color: #fff;">AlphaDev (John Doe)</span>
+                                    </p>
+                                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                        <strong>Contact:</strong> <span id="displayProfileContact"
+                                            style="color: #fff;">john@alphadev.tech</span>
+                                    </p>
+                                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                        <strong>Location:</strong> <span id="displayProfileLocation"
+                                            style="color: #fff;">Remote, San Francisco</span>
+                                    </p>
+                                    <button id="editProfileBtn" class="btn btn-secondary btn-sm mt-4">Edit Profile
+                                        Info</button>
+                                </div>
+                            </div>
+
+                            <!-- Contract Form -->
+                            <div>
+                                <div class="dashboard-title-row">
+                                    <h2>Submit New Contract Form</h2>
+                                </div>
+                                <div class="glass-card mt-4">
+                                    <form style="display: flex; flex-direction: column; gap: 1rem;">
+                                        <input type="text" placeholder="Contract Title"
+                                            style="padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff; width: 100%;">
+                                        <textarea placeholder="Scope of Work & Requirements" rows="3"
+                                            style="padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff; width: 100%;"></textarea>
+                                        <input type="number" placeholder="Proposed Budget ($)"
+                                            style="padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff; width: 100%;">
+                                        <select required style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.4); color: #fff;">
+                                            <option value="crypto" selected>Crypto Escrow (USDC/ETH)</option>
+                                            <option value="gpay">Google Pay</option>
+                                            <option value="upi">UPI</option>
+                                            <option value="paytm">Paytm</option>
+                                            <option value="cash">Cash (Manual Escrow)</option>
+                                        </select>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="alert('Contract Proposal Submitted to Employer!')">Send
+                                            Proposal</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Freelancer Assigned Projects -->
+                        <div class="mt-4">
+                            <div class="dashboard-title-row">
+                                <h2>My Assigned Projects</h2>
+                            </div>
+                            <div class="glass-card mt-4">
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li
+                                        style="padding: 1rem; border-bottom: 1px solid var(--border-glass); display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="margin-bottom: 0.25rem;">E-Commerce Backend Refactor</h4>
+                                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                                                Employer: TechCorp Inc.</p>
+                                        </div>
+                                        <span class="badge badge-active" style="margin-bottom: 0;">In Progress (2/5
+                                            Milestones)</span>
+                                    </li>
+                                    <li
+                                        style="padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="margin-bottom: 0.25rem;">Smart Contract Audit</h4>
+                                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                                                Employer: Web3 Solutions</p>
+                                        </div>
+                                        <span class="badge"
+                                            style="margin-bottom: 0; background: rgba(16, 185, 129, 0.1); color: var(--success); border-color: rgba(16, 185, 129, 0.3);">Completed</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-4 text-center">
+                    <a href="index.html" class="btn btn-secondary">Return to Landing Page</a>
+                </div>
+            </div> <!-- End view-overview -->
+
+            <!-- Projects View -->
+            <div class="dashboard-view hidden" id="view-projects">
+                <div class="dashboard-title-row">
+                    <h1>Active Projects</h1>
+                </div>
+                <div class="glass-card stat-card mt-4">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <h3 style="margin-bottom: 0.5rem;">Project 042: E-Commerce Backend Refactor</h3>
+                            <p style="color: var(--text-secondary)">Employer: You | Freelancer: AlphaDev</p>
+                            <p style="color: var(--text-secondary)">Progress: 40% (2/5 Milestones)</p>
+                        </div>
+                        <button id="toggleProjectBtn" class="btn btn-primary btn-sm">Manage Project</button>
+                    </div>
+
+                    <!-- Hidden Expanded Details -->
+                    <div id="projectDetails"
+                        style="display: none; margin-top: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-cyan);">Active Milestone: Database Migration
+                        </h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">The AI agent is currently
+                            monitoring the GitHub repository for PR #104. Once the test suite passes with >95% coverage,
+                            $2,500 will be released from escrow.</p>
+
+                        <div style="display: flex; gap: 1rem;">
+                            <button id="approveMilestoneBtn" class="btn btn-success btn-sm"
+                                style="background: rgba(16, 185, 129, 0.2); border: 1px solid var(--success); color: var(--success);">Force
+                                Approve Milestone</button>
+                            <button id="requestAuditBtn" class="btn btn-secondary btn-sm"
+                                style="color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">Request Human
+                                Audit</button>
+                        </div>
+
+                        <div id="projectActionFeedback"
+                            style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-cyan); display: none;">
+                            Action registered. AI Agent has been notified.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Escrows View -->
+            <div class="dashboard-view hidden" id="view-escrows">
+                <div class="dashboard-title-row">
+                    <h1>Escrow Vaults</h1>
+                </div>
+                <div class="glass-card stat-card mt-4">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <h3 style="margin-bottom: 0.5rem;">Total Locked Value</h3>
+                            <h2>$12,500.00</h2>
+                        </div>
+                        <div style="text-align: right;">
+                            <h3 style="margin-bottom: 0.5rem; color: var(--success);">Released</h3>
+                            <h2>$2,500.00</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div class="dashboard-view hidden" id="view-settings">
+                <div class="dashboard-title-row">
+                    <h1>Account Settings</h1>
+                </div>
+                <div class="glass-card mt-4" style="margin-bottom: 2rem;">
+                    <h3 style="margin-bottom: 1rem;">Profile Mode</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">You are currently operating in
+                        <strong id="currentModeText">Employer Mode</strong>.
+                    </p>
+                    <button id="switchModeBtn" class="btn btn-secondary btn-sm">Switch to Freelancer Mode</button>
+                </div>
+
+                <!-- NEW: To-Do Task Option -->
+                <div class="dashboard-title-row">
+                    <h2>My To-Do Tasks</h2>
+                </div>
+                <!-- ... existing todo list ... -->
+                <div class="glass-card mt-4">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <input type="text" id="newTaskInput" placeholder="Enter a new task..."
+                            style="flex: 1; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                        <button class="btn btn-primary btn-sm" id="addTaskBtn">Add Task</button>
+                    </div>
+
+                    <ul id="taskList" style="list-style: none; padding: 0;">
+                        <!-- JS injected tasks will go here -->
+                        <li
+                            style="padding: 1rem; border-bottom: 1px solid var(--border-glass); display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <input type="checkbox" style="margin-right: 10px;">
+                                <span>Review latest Github Pull Request for Project 042</span>
+                            </div>
+                            <span style="color: var(--danger); cursor: pointer;"
+                                onclick="this.parentElement.remove()">🗑️</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 1. Payment Methods & Wallets Integration -->
+                <div class="dashboard-title-row mt-4">
+                    <h2>Payment Methods & Wallets</h2>
+                </div>
+                <div class="glass-card mt-4" style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+                    
+                    <!-- Crypto Wallet -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--border-glass);">
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="font-size: 2rem;">🪙</div>
+                            <div>
+                                <h3 style="margin-bottom: 0.2rem;">Crypto Wallet</h3>
+                                <p id="walletAddressText" style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">0x4F...a1B2 (Ethereum Mainnet)</p>
+                            </div>
+                        </div>
+                        <button id="disconnectWalletBtn" class="btn btn-secondary btn-sm"
+                            style="background: rgba(138,43,226,0.2); border-color: var(--accent-purple);">Disconnect</button>
+                    </div>
+
+                    <!-- Google Pay -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--border-glass);">
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="font-size: 2rem;">📱</div>
+                            <div>
+                                <h3 style="margin-bottom: 0.2rem;">Google Pay</h3>
+                                <p id="gpayStatusText" style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Not Connected</p>
+                            </div>
+                        </div>
+                        <button id="connectGpayBtn" class="btn btn-primary btn-sm"
+                            style="background: var(--gradient-primary); border: none;">Continue with Google Pay</button>
+                    </div>
+
+                    <!-- UPI -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--border-glass);">
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="font-size: 2rem;">💳</div>
+                            <div>
+                                <h3 style="margin-bottom: 0.2rem;">UPI</h3>
+                                <p id="upiStatusText" style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Not Connected</p>
+                            </div>
+                        </div>
+                        <button id="connectUpiBtn" class="btn btn-primary btn-sm"
+                            style="background: var(--gradient-primary); border: none;">Continue with UPI</button>
+                    </div>
+
+                    <!-- Paytm -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--border-glass);">
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="font-size: 2rem;">🏦</div>
+                            <div>
+                                <h3 style="margin-bottom: 0.2rem;">Paytm</h3>
+                                <p id="paytmStatusText" style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Not Connected</p>
+                            </div>
+                        </div>
+                        <button id="connectPaytmBtn" class="btn btn-primary btn-sm"
+                            style="background: var(--gradient-primary); border: none;">Continue with Paytm</button>
+                    </div>
+
+                    <!-- Cash / Offline Escrow -->
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="font-size: 2rem;">💵</div>
+                            <div>
+                                <h3 style="margin-bottom: 0.2rem;">Cash / Offline Escrow</h3>
+                                <p id="cashStatusText" style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Disabled</p>
+                            </div>
+                        </div>
+                        <button id="toggleCashBtn" class="btn btn-secondary btn-sm"
+                            style="border-color: var(--text-secondary);">Enable</button>
+                    </div>
+                </div>
+
+                <!-- 2. AI Agent Preferences -->
+                <div class="dashboard-title-row mt-4">
+                    <h2>AI Agent Preferences</h2>
+                </div>
+                <div class="glass-card mt-4" style="margin-bottom: 2rem;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="margin-bottom: 0.5rem;">AI Autonomy Level</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Set how much control the AI has
+                            over escrow releases.</p>
+                        <select
+                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                            <option>Strict Approval (Manual Review Needed)</option>
+                            <option selected>Balanced (AI Suggests, Human Approves)</option>
+                            <option>Full Autonomy (AI Releases Automatically)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 3. Notification Settings -->
+                <div class="dashboard-title-row mt-4">
+                    <h2>Notification Settings</h2>
+                </div>
+                <div class="glass-card mt-4" style="margin-bottom: 2rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <span>Milestone Approvals (Email)</span>
+                        <input type="checkbox" checked>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>AI Agent Activity Logs (Push)</span>
+                        <input type="checkbox" checked>
+                    </div>
+                </div>
+
+                <!-- 4. Appearance & Profile -->
+                <div class="dashboard-title-row mt-4">
+                    <h2>Appearance & Profile</h2>
+                </div>
+                <div class="glass-card mt-4" style="margin-bottom: 2rem;">
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div class="user-avatar"
+                            style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                            EM</div>
+                        <div>
+                            <button id="uploadAvatarBtn" class="btn btn-secondary btn-sm"
+                                style="margin-bottom: 0.5rem;">Upload New
+                                Avatar</button>
+                            <p id="visibilityText" style="color: var(--text-secondary); font-size: 0.9rem;">Public
+                                Profile Visibility is ON.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Security -->
+                <div class="dashboard-title-row mt-4">
+                    <h2>Security</h2>
+                </div>
+
+                <div class="glass-card mt-4" style="margin-bottom: 2rem;">
+                    <!-- Password & Profile Section -->
+                    <div>
+                        <h3 style="margin-bottom: 1rem;">Password & Profile Customization</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Update your linked account
+                            password, user preferences, and profile details securely.</p>
+                        <button id="openProfileModalBtn" class="btn btn-primary btn-sm">Configure Password &
+                            Profile</button>
+                    </div>
+                </div>
+            </div>
+    </div> <!-- End dashboard-content -->
+    </main>
+    </div>
+
+    <!-- User Profile & Password Modal Overlay -->
+    <div id="userProfileModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Profile Details</h3>
+                <button class="modal-close" id="closeProfileModalBtn">&times;</button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- Profile Link Note -->
+                <div
+                    style="padding: 1rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; margin-bottom: 1rem;">
+                    <p
+                        style="font-size: 0.9rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                        <span style="font-size: 1.2rem;">✓</span> Linked to User Profile
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">Changes made here
+                        will reflect globally across your freelancer account.</p>
+                </div>
+
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Current
+                        Password</label>
+                    <input type="password" placeholder="Verify current password"
+                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                </div>
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">New
+                        Password Preference</label>
+                    <input type="password" placeholder="Recheck new password"
+                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                </div>
+                <button id="modalUpdatePasswordBtn" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Save
+                    Global Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Freelancer Profile Modal -->
+    <div id="freelancerProfileModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Freelancer Profile</h3>
+                <button class="modal-close" id="closeFreelancerProfileBtn">&times;</button>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Full
+                        Name / Alias</label>
+                    <input type="text" id="editProfileName"
+                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                </div>
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Contact
+                        Email</label>
+                    <input type="email" id="editProfileContact"
+                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                </div>
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Location</label>
+                    <input type="text" id="editProfileLocation"
+                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                </div>
+                <button id="saveFreelancerProfileBtn" class="btn btn-primary"
+                    style="margin-top: 1rem; width: 100%;">Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Payment Modal -->
+    <div id="qrCodeModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <div class="modal-header">
+                <h3 id="qrModalTitle">Scan to Pay</h3>
+                <button class="modal-close" id="closeQrModalBtn">&times;</button>
+            </div>
+            <div style="padding: 1.5rem 0;">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;" id="qrModalDesc">Please scan the QR code below using your mobile app to securely fund the escrow.</p>
+                <div style="background: white; padding: 1rem; border-radius: 12px; display: inline-block;">
+                    <img id="qrCodeImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=trustledger@upi&pn=TrustLedger" alt="Payment QR Code" style="width: 200px; height: 200px;">
+                </div>
+                <div style="margin-top: 2rem;">
+                    <button id="qrPaymentCompleteBtn" class="btn btn-primary" style="width: 100%;">I have completed the payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employer Contract Proposal Modal -->
+    <div id="employerContractModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3>Draft New Project Contract</h3>
+                <button class="modal-close" id="closeEmployerContractBtn">&times;</button>
+            </div>
+            <form id="employerContractForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Freelancer
+                            Name</label>
+                        <input type="text" id="contractFreelancerName" readonly
+                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.4); color: #fff;">
+                    </div>
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Client
+                            Info (Company/Name)</label>
+                        <input type="text" required placeholder="e.g. Acme Corp"
+                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                    </div>
+                </div>
+
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Needs
+                        of the Client (Scope of Work)</label>
+                    <textarea rows="4" required placeholder="Describe what needs to be built or delivered..."
+                        style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;"></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Amount
+                            ($)</label>
+                        <input type="number" required placeholder="5000"
+                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                    </div>
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Time
+                            & Date</label>
+                        <input type="datetime-local" required
+                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                    </div>
+                    <div>
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Deadline</label>
+                        <input type="date" required
+                            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2); color: #fff;">
+                    </div>
+                </div>
+
+                <div>
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Funding Method</label>
+                    <select required style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.4); color: #fff;">
+                        <option value="crypto" selected>Crypto Escrow (USDC/ETH)</option>
+                        <option value="gpay">Google Pay</option>
+                        <option value="cash">Cash (Manual Escrow)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width: 100%;"
+                    id="submitEmployerContractBtn">Fund Escrow & Send Contract</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Employer Chat Modal -->
+    <div id="employerChatModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>Chat with: <span id="chatFreelancerName" style="color: var(--accent-blue);"></span></h3>
+                <button class="modal-close" id="closeEmployerChatBtn">&times;</button>
+            </div>
+
+            <div id="chatMessageArea"
+                style="height: 300px; overflow-y: auto; background: rgba(0,0,0,0.2); border: 1px solid var(--border-glass); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+                <!-- Chat messages will appear here -->
+                <div
+                    style="text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: auto; margin-bottom: auto;">
+                    This is the start of your encrypted conversation.
+                </div>
+            </div>
+
+            <form id="employerChatForm" style="display: flex; gap: 0.5rem;">
+                <input type="text" id="chatInputMessage" required placeholder="Type a message..."
+                    style="flex: 1; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.4); color: #fff;">
+                <button type="submit" class="btn btn-primary" style="padding: 0 1.5rem;">Send</button>
+            </form>
+        </div>
+    </div>
+
+    </div> <!-- End dashboard-content -->
+    </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply Role Logics
+            const currentRole = localStorage.getItem('trustledgerRole') || 'employer';
+            const headerAvatar = document.querySelector('.header-user .user-avatar');
+            const headerRoleName = document.querySelector('.header-user .user-name');
+
+            if (currentRole === 'freelancer') {
+                if (headerAvatar) headerAvatar.innerText = 'FL';
+                if (headerRoleName) headerRoleName.innerText = 'Freelancer Mode';
+                document.querySelectorAll('.freelancer-only').forEach(el => el.style.display = 'block');
+            } else {
+                if (headerAvatar) headerAvatar.innerText = 'EM';
+                if (headerRoleName) headerRoleName.innerText = 'Employer Mode';
+                document.querySelectorAll('.employer-only').forEach(el => el.style.display = 'block');
+            }
+
+            const navItems = document.querySelectorAll('.nav-item[data-target]');
+            const views = document.querySelectorAll('.dashboard-view');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Remove active class from all
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    views.forEach(view => view.classList.add('hidden'));
+
+                    // Add active class to clicked item
+                    item.classList.add('active');
+
+                    // Show target view
+                    const targetId = item.getAttribute('data-target');
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+
+            // To-Do Logic
+            const addTaskBtn = document.getElementById('addTaskBtn');
+            const newTaskInput = document.getElementById('newTaskInput');
+            const taskList = document.getElementById('taskList');
+
+            if (addTaskBtn && newTaskInput && taskList) {
+                addTaskBtn.addEventListener('click', () => {
+                    const taskText = newTaskInput.value.trim();
+                    if (taskText !== '') {
+                        const li = document.createElement('li');
+                        li.style.cssText = "padding: 1rem; border-bottom: 1px solid var(--border-glass); display: flex; justify-content: space-between; align-items: center;";
+                        li.innerHTML = `
+                            <div>
+                                <input type="checkbox" style="margin-right: 10px;">
+                                <span>${taskText}</span>
+                            </div>
+                            <span style="color: var(--danger); cursor: pointer;" onclick="this.parentElement.remove()">🗑️</span>
+                        `;
+                        taskList.appendChild(li);
+                        newTaskInput.value = ''; // clear input
+                    }
+                });
+
+                // Also allow pressing "Enter" to add task
+                newTaskInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        addTaskBtn.click();
+                    }
+                });
+            }
+
+            // --- Active Projects Logic ---
+            const toggleProjectBtn = document.getElementById('toggleProjectBtn');
+            const projectDetails = document.getElementById('projectDetails');
+
+            if (toggleProjectBtn && projectDetails) {
+                toggleProjectBtn.addEventListener('click', () => {
+                    const isHidden = projectDetails.style.display === 'none';
+                    if (isHidden) {
+                        projectDetails.style.display = 'block';
+                        toggleProjectBtn.innerText = 'Collapse Project';
+                        toggleProjectBtn.style.background = 'rgba(255, 255, 255, 0.1)';
+                    } else {
+                        projectDetails.style.display = 'none';
+                        toggleProjectBtn.innerText = 'Manage Project';
+                        toggleProjectBtn.style.background = '';
+                    }
+                });
+            }
+
+            const approveMilestoneBtn = document.getElementById('approveMilestoneBtn');
+            const requestAuditBtn = document.getElementById('requestAuditBtn');
+            const projectActionFeedback = document.getElementById('projectActionFeedback');
+
+            if (approveMilestoneBtn && requestAuditBtn && projectActionFeedback) {
+                approveMilestoneBtn.addEventListener('click', () => {
+                    const paymentId = prompt("Please confirm your funding Wallet Address, GPay Email, UPI ID, or Paytm Number to release funds:");
+                    if (paymentId) {
+                        projectActionFeedback.style.display = 'block';
+                        projectActionFeedback.style.color = 'var(--success)';
+                        projectActionFeedback.innerText = `✓ Milestone Approved. Releasing $2,500 from Escrow to ${paymentId}...`;
+                        approveMilestoneBtn.disabled = true;
+                        requestAuditBtn.disabled = true;
+                    }
+                });
+
+                requestAuditBtn.addEventListener('click', () => {
+                    projectActionFeedback.style.display = 'block';
+                    projectActionFeedback.style.color = 'var(--danger)';
+                    projectActionFeedback.innerText = '! Audit Requested. Halting automated releases. A human agent will intervene.';
+                    approveMilestoneBtn.disabled = true;
+                    requestAuditBtn.disabled = true;
+                });
+            }
+
+            // Extended Settings Interactive Logic
+            const switchModeBtn = document.getElementById('switchModeBtn');
+            const currentModeText = document.getElementById('currentModeText');
+            if (switchModeBtn && currentModeText) {
+                switchModeBtn.addEventListener('click', () => {
+                    if (currentModeText.innerText === 'Employer Mode') {
+                        currentModeText.innerText = 'Freelancer Mode';
+                        switchModeBtn.innerText = 'Switch to Employer Mode';
+                        switchModeBtn.style.background = 'var(--gradient-primary)';
+                    } else {
+                        currentModeText.innerText = 'Employer Mode';
+                        switchModeBtn.innerText = 'Switch to Freelancer Mode';
+                        switchModeBtn.style.background = ''; // reset to default
+                    }
+                });
+            }
+
+            const disconnectWalletBtn = document.getElementById('disconnectWalletBtn');
+            const walletAddressText = document.getElementById('walletAddressText');
+            if (disconnectWalletBtn && walletAddressText) {
+                disconnectWalletBtn.addEventListener('click', () => {
+                    if (disconnectWalletBtn.innerText === 'Disconnect') {
+                        walletAddressText.innerText = 'No wallet connected';
+                        disconnectWalletBtn.innerText = 'Connect Wallet';
+                        disconnectWalletBtn.style.background = 'var(--accent-cyan)';
+                        disconnectWalletBtn.style.color = '#000';
+                    } else {
+                        walletAddressText.innerText = '0x4F...a1B2 (Ethereum Mainnet)';
+                        disconnectWalletBtn.innerText = 'Disconnect';
+                        disconnectWalletBtn.style.background = 'rgba(138,43,226,0.2)';
+                        disconnectWalletBtn.style.color = ''; // reset
+                    }
+                });
+            }
+
+            const connectGpayBtn = document.getElementById('connectGpayBtn');
+            const gpayStatusText = document.getElementById('gpayStatusText');
+            if (connectGpayBtn && gpayStatusText) {
+                // Initialize Google Pay API Client
+                const baseRequest = { apiVersion: 2, apiVersionMinor: 0 };
+                const tokenizationSpecification = {
+                    type: 'PAYMENT_GATEWAY',
+                    parameters: { gateway: 'example', gatewayMerchantId: 'exampleGatewayMerchantId' }
+                };
+                const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+                const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+                const baseCardPaymentMethod = {
+                    type: 'CARD',
+                    parameters: { allowedAuthMethods: allowedCardAuthMethods, allowedCardNetworks: allowedCardNetworks }
+                };
+                const cardPaymentMethod = Object.assign(
+                    {}, baseCardPaymentMethod, { tokenizationSpecification: tokenizationSpecification }
+                );
+                
+                let paymentsClient = null;
+                try {
+                    paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
+                } catch(e) {
+                    console.log("Google Pay API not loaded yet.");
+                }
+
+                connectGpayBtn.addEventListener('click', () => {
+                    if (connectGpayBtn.innerText === 'Continue with Google Pay') {
+                        if (paymentsClient) {
+                            const paymentDataRequest = Object.assign({}, baseRequest);
+                            paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
+                            paymentDataRequest.transactionInfo = {
+                                totalPriceStatus: 'FINAL',
+                                totalPrice: '0.00',
+                                currencyCode: 'USD',
+                                countryCode: 'US'
+                            };
+                            paymentDataRequest.merchantInfo = {
+                                merchantName: 'TrustLedger',
+                                merchantId: '12345678901234567890'
+                            };
+
+                            paymentsClient.loadPaymentData(paymentDataRequest).then(function(paymentData) {
+                                // Success
+                                gpayStatusText.innerText = `Connected via Google Pay`;
+                                connectGpayBtn.innerText = 'Disconnect';
+                                connectGpayBtn.style.background = 'rgba(138,43,226,0.2)';
+                                connectGpayBtn.style.color = '';
+                            }).catch(function(err) {
+                                console.error('GPay Error:', err);
+                                alert("Google Pay popup closed or failed.");
+                            });
+                        } else {
+                            // Fallback if API hasn't loaded
+                            const gpayEmail = prompt("Google Pay API not ready. Enter your Google Pay Email or Number manually:");
+                            if (gpayEmail) {
+                                gpayStatusText.innerText = `${gpayEmail} (Connected)`;
+                                connectGpayBtn.innerText = 'Disconnect';
+                                connectGpayBtn.style.background = 'rgba(138,43,226,0.2)';
+                                connectGpayBtn.style.color = '';
+                            }
+                        }
+                        
+                    } else {
+                        gpayStatusText.innerText = 'Not Connected';
+                        connectGpayBtn.innerText = 'Continue with Google Pay';
+                        connectGpayBtn.style.background = 'var(--gradient-primary)';
+                        connectGpayBtn.style.border = 'none';
+                    }
+                });
+            }
+
+            const connectUpiBtn = document.getElementById('connectUpiBtn');
+            const upiStatusText = document.getElementById('upiStatusText');
+            if (connectUpiBtn && upiStatusText) {
+                connectUpiBtn.addEventListener('click', () => {
+                    if (connectUpiBtn.innerText === 'Continue with UPI') {
+                        const upiId = prompt("Enter your UPI ID (e.g. name@upi):");
+                        if (upiId) {
+                            upiStatusText.innerText = `${upiId} (Connected)`;
+                            connectUpiBtn.innerText = 'Disconnect';
+                            connectUpiBtn.style.background = 'rgba(138,43,226,0.2)';
+                            connectUpiBtn.style.color = '';
+                            setTimeout(() => {
+                                // Fallback to BHIM UPI website
+                                window.open('https://www.bhimupi.org.in/', '_blank');
+                            }, 500);
+                        }
+                    } else {
+                        upiStatusText.innerText = 'Not Connected';
+                        connectUpiBtn.innerText = 'Continue with UPI';
+                        connectUpiBtn.style.background = 'var(--gradient-primary)';
+                        connectUpiBtn.style.border = 'none';
+                    }
+                });
+            }
+
+            const connectPaytmBtn = document.getElementById('connectPaytmBtn');
+            const paytmStatusText = document.getElementById('paytmStatusText');
+            if (connectPaytmBtn && paytmStatusText) {
+                connectPaytmBtn.addEventListener('click', () => {
+                    if (connectPaytmBtn.innerText === 'Continue with Paytm') {
+                        const paytmNo = prompt("Enter your Paytm Number:");
+                        if (paytmNo) {
+                            paytmStatusText.innerText = `${paytmNo} (Connected)`;
+                            connectPaytmBtn.innerText = 'Disconnect';
+                            connectPaytmBtn.style.background = 'rgba(138,43,226,0.2)';
+                            connectPaytmBtn.style.color = '';
+                            setTimeout(() => {
+                                // Fallback to Paytm website
+                                window.open('https://paytm.com/', '_blank');
+                            }, 500);
+                        }
+                    } else {
+                        paytmStatusText.innerText = 'Not Connected';
+                        connectPaytmBtn.innerText = 'Continue with Paytm';
+                        connectPaytmBtn.style.background = 'var(--gradient-primary)';
+                        connectPaytmBtn.style.border = 'none';
+                    }
+                });
+            }
+
+            const toggleCashBtn = document.getElementById('toggleCashBtn');
+            const cashStatusText = document.getElementById('cashStatusText');
+            if (toggleCashBtn && cashStatusText) {
+                toggleCashBtn.addEventListener('click', () => {
+                    if (toggleCashBtn.innerText === 'Enable') {
+                        cashStatusText.innerText = 'Enabled';
+                        toggleCashBtn.innerText = 'Disable';
+                        toggleCashBtn.style.background = 'rgba(239, 68, 68, 0.2)';
+                        toggleCashBtn.style.borderColor = 'var(--danger)';
+                        toggleCashBtn.style.color = 'var(--danger)';
+                    } else {
+                        cashStatusText.innerText = 'Disabled';
+                        toggleCashBtn.innerText = 'Enable';
+                        toggleCashBtn.style.background = '';
+                        toggleCashBtn.style.borderColor = 'var(--text-secondary)';
+                        toggleCashBtn.style.color = '';
+                    }
+                });
+            }
+
+            const uploadAvatarBtn = document.getElementById('uploadAvatarBtn');
+            if (uploadAvatarBtn) {
+                uploadAvatarBtn.addEventListener('click', () => {
+                    const originalText = uploadAvatarBtn.innerText;
+                    uploadAvatarBtn.innerText = 'Uploading...';
+                    setTimeout(() => {
+                        uploadAvatarBtn.innerText = 'Avatar Updated!';
+                        uploadAvatarBtn.style.background = 'var(--success)';
+                        setTimeout(() => {
+                            uploadAvatarBtn.innerText = originalText;
+                            uploadAvatarBtn.style.background = '';
+                        }, 2000);
+                    }, 1000);
+                });
+            }
+
+            // --- Profile & Password Modal Logic ---
+            const openProfileModalBtn = document.getElementById('openProfileModalBtn');
+            const closeProfileModalBtn = document.getElementById('closeProfileModalBtn');
+            const userProfileModal = document.getElementById('userProfileModal');
+
+            if (openProfileModalBtn && closeProfileModalBtn && userProfileModal) {
+                openProfileModalBtn.addEventListener('click', () => {
+                    userProfileModal.classList.add('active');
+                });
+
+                closeProfileModalBtn.addEventListener('click', () => {
+                    userProfileModal.classList.remove('active');
+                });
+
+                // Close modal on outside click
+                userProfileModal.addEventListener('click', (e) => {
+                    if (e.target === userProfileModal) {
+                        userProfileModal.classList.remove('active');
+                    }
+                });
+            }
+
+            const modalUpdatePasswordBtn = document.getElementById('modalUpdatePasswordBtn');
+            if (modalUpdatePasswordBtn) {
+                modalUpdatePasswordBtn.addEventListener('click', () => {
+                    const originalText = modalUpdatePasswordBtn.innerText;
+                    modalUpdatePasswordBtn.innerText = 'Saving Changes...';
+                    setTimeout(() => {
+                        modalUpdatePasswordBtn.innerText = 'Preferences Updated ✓';
+                        modalUpdatePasswordBtn.style.background = 'var(--success)';
+                        setTimeout(() => {
+                            modalUpdatePasswordBtn.innerText = originalText;
+                            modalUpdatePasswordBtn.style.background = '';
+
+                            // Reset inputs and close modal
+                            const pwdInputs = userProfileModal.querySelectorAll('input[type="password"]');
+                            pwdInputs.forEach(input => input.value = '');
+                            userProfileModal.classList.remove('active');
+                        }, 2000);
+                    }, 1200);
+                });
+            }
+
+            // --- Freelancer Profile Modal Logic ---
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const freelancerProfileModal = document.getElementById('freelancerProfileModal');
+            const closeFreelancerProfileBtn = document.getElementById('closeFreelancerProfileBtn');
+            const saveFreelancerProfileBtn = document.getElementById('saveFreelancerProfileBtn');
+
+            const displayProfileName = document.getElementById('displayProfileName');
+            const displayProfileContact = document.getElementById('displayProfileContact');
+            const displayProfileLocation = document.getElementById('displayProfileLocation');
+
+            const editProfileName = document.getElementById('editProfileName');
+            const editProfileContact = document.getElementById('editProfileContact');
+            const editProfileLocation = document.getElementById('editProfileLocation');
+
+            if (editProfileBtn && freelancerProfileModal) {
+                editProfileBtn.addEventListener('click', () => {
+                    // Populate modal fields with current values
+                    editProfileName.value = displayProfileName.innerText;
+                    editProfileContact.value = displayProfileContact.innerText;
+                    editProfileLocation.value = displayProfileLocation.innerText;
+                    freelancerProfileModal.classList.add('active');
+                });
+
+                closeFreelancerProfileBtn.addEventListener('click', () => {
+                    freelancerProfileModal.classList.remove('active');
+                });
+
+                freelancerProfileModal.addEventListener('click', (e) => {
+                    if (e.target === freelancerProfileModal) {
+                        freelancerProfileModal.classList.remove('active');
+                    }
+                });
+
+                saveFreelancerProfileBtn.addEventListener('click', () => {
+                    const originalText = saveFreelancerProfileBtn.innerText;
+                    saveFreelancerProfileBtn.innerText = 'Saving...';
+
+                    setTimeout(() => {
+                        // Update display values
+                        displayProfileName.innerText = editProfileName.value;
+                        displayProfileContact.innerText = editProfileContact.value;
+                        displayProfileLocation.innerText = editProfileLocation.value;
+
+                        saveFreelancerProfileBtn.innerText = 'Saved ✓';
+                        saveFreelancerProfileBtn.style.background = 'var(--success)';
+
+                        setTimeout(() => {
+                            saveFreelancerProfileBtn.innerText = originalText;
+                            saveFreelancerProfileBtn.style.background = '';
+                            freelancerProfileModal.classList.remove('active');
+                        }, 1000);
+                    }, 800);
+                });
+            }
+
+            // --- Employer Contract Form Logic ---
+            const employerContractModal = document.getElementById('employerContractModal');
+            const closeEmployerContractBtn = document.getElementById('closeEmployerContractBtn');
+            const contractFreelancerName = document.getElementById('contractFreelancerName');
+            const employerContractForm = document.getElementById('employerContractForm');
+            const submitEmployerContractBtn = document.getElementById('submitEmployerContractBtn');
+
+            if (employerContractModal) {
+                document.querySelectorAll('.open-employer-contract-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        contractFreelancerName.value = e.target.getAttribute('data-freelancer');
+                        employerContractModal.classList.add('active');
+                    });
+                });
+
+                closeEmployerContractBtn.addEventListener('click', () => {
+                    employerContractModal.classList.remove('active');
+                });
+
+                employerContractModal.addEventListener('click', (e) => {
+                    if (e.target === employerContractModal) {
+                        employerContractModal.classList.remove('active');
+                    }
+                });
+
+                if (employerContractForm) {
+                    employerContractForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        
+                        // Added Payment Prompt Simulation
+                        const fundingMethod = employerContractForm.querySelector('select').value;
+                        let promptMsg = "Confirm Payment details to fund Escrow";
+                        if (fundingMethod === 'crypto') promptMsg = "Enter your Wallet Address to fund crypto Escrow:";
+                        if (fundingMethod === 'gpay') promptMsg = "Enter your Google Pay Email/Number to fund Escrow:";
+                        if (fundingMethod === 'upi') promptMsg = "Enter your UPI ID to fund Escrow:";
+                        if (fundingMethod === 'paytm') promptMsg = "Enter your Paytm Number to fund Escrow:";
+                        if (fundingMethod === 'crypto') {
+                            const paymentInfo = prompt("Enter your Wallet Address to fund crypto Escrow:");
+                            if (!paymentInfo) return;
+                            processEmployerContract(paymentInfo);
+                        } else {
+                            // Show QR Code Modal for Google Pay, UPI, Paytm
+                            const qrCodeModal = document.getElementById('qrCodeModal');
+                            const qrModalTitle = document.getElementById('qrModalTitle');
+                            const qrPaymentCompleteBtn = document.getElementById('qrPaymentCompleteBtn');
+                            const closeQrModalBtn = document.getElementById('closeQrModalBtn');
+
+                            if (fundingMethod === 'gpay') qrModalTitle.innerText = "Scan with Google Pay";
+                            if (fundingMethod === 'upi') qrModalTitle.innerText = "Scan with any UPI App";
+                            if (fundingMethod === 'paytm') qrModalTitle.innerText = "Scan with Paytm";
+
+                            qrCodeModal.classList.add('active');
+
+                            const closeQr = () => qrCodeModal.classList.remove('active');
+                            closeQrModalBtn.onclick = closeQr;
+                            
+                            qrPaymentCompleteBtn.onclick = () => {
+                                closeQr();
+                                processEmployerContract(`QR Scan (${fundingMethod.toUpperCase()})`);
+                            };
+                        }
+
+                        function processEmployerContract(paymentInfo) {
+                            const originalText = submitEmployerContractBtn.innerText;
+                            submitEmployerContractBtn.innerText = `Funding via ${paymentInfo}...`;
+                            submitEmployerContractBtn.disabled = true;
+
+                            setTimeout(() => {
+                                submitEmployerContractBtn.innerText = 'Contract Sent & Escrow Funded ✓';
+                                submitEmployerContractBtn.style.background = 'var(--success)';
+
+                                setTimeout(() => {
+                                    submitEmployerContractBtn.innerText = originalText;
+                                    submitEmployerContractBtn.style.background = '';
+                                    submitEmployerContractBtn.disabled = false;
+                                    employerContractModal.classList.remove('active');
+                                    employerContractForm.reset();
+                                }, 1500);
+                            }, 1000);
+                        }
+                    });
+                }
+            }
+
+            // --- Employer Chat Logic ---
+            const employerChatModal = document.getElementById('employerChatModal');
+            const closeEmployerChatBtn = document.getElementById('closeEmployerChatBtn');
+            const chatFreelancerName = document.getElementById('chatFreelancerName');
+            const employerChatForm = document.getElementById('employerChatForm');
+            const chatMessageArea = document.getElementById('chatMessageArea');
+            const chatInputMessage = document.getElementById('chatInputMessage');
+
+            if (employerChatModal) {
+                document.querySelectorAll('.open-employer-chat-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        chatFreelancerName.innerText = e.target.getAttribute('data-freelancer');
+                        employerChatModal.classList.add('active');
+                    });
+                });
+
+                closeEmployerChatBtn.addEventListener('click', () => {
+                    employerChatModal.classList.remove('active');
+                });
+
+                employerChatModal.addEventListener('click', (e) => {
+                    if (e.target === employerChatModal) {
+                        employerChatModal.classList.remove('active');
+                    }
+                });
+
+                if (employerChatForm) {
+                    employerChatForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const messageText = chatInputMessage.value.trim();
+                        if (!messageText) return;
+
+                        // Create Sent Message Bubble
+                        const msgDiv = document.createElement('div');
+                        msgDiv.style.alignSelf = 'flex-end';
+                        msgDiv.style.background = 'var(--gradient-primary)';
+                        msgDiv.style.color = '#fff';
+                        msgDiv.style.padding = '0.5rem 1rem';
+                        msgDiv.style.borderRadius = '16px 16px 0 16px';
+                        msgDiv.style.maxWidth = '80%';
+                        msgDiv.style.wordBreak = 'break-word';
+                        msgDiv.innerText = messageText;
+
+                        // Remove starter text if present
+                        const starterText = chatMessageArea.querySelector('div[style*="text-align: center"]');
+                        if (starterText) starterText.remove();
+
+                        chatMessageArea.appendChild(msgDiv);
+                        chatInputMessage.value = '';
+                        chatMessageArea.scrollTop = chatMessageArea.scrollHeight; // Auto-scroll
+                    });
+                }
+            }
+
+            // --- AI Client Roadmap Logic ---
+            const aiRoadmapForm = document.getElementById('aiRoadmapForm');
+            const generateRoadmapBtn = document.getElementById('generateRoadmapBtn');
+            const aiGeneratedRoadmapArea = document.getElementById('aiGeneratedRoadmapArea');
+            const aiMilestoneList = document.getElementById('aiMilestoneList');
+            const applyRoadmapBtn = document.getElementById('applyRoadmapBtn');
+
+            if (aiRoadmapForm) {
+                aiRoadmapForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const desc = document.getElementById('aiProjectDesc').value;
+                    const budget = parseFloat(document.getElementById('aiTotalBudget').value);
+                    let count = parseInt(document.getElementById('aiMilestoneCount').value);
+
+                    if (!count || count < 1) {
+                        // Let AI "decide" based on budget size
+                        count = budget > 2000 ? 4 : 2;
+                        document.getElementById('aiMilestoneCount').value = count;
+                    }
+
+                    // Simulate AI Generation Delay
+                    const originalText = generateRoadmapBtn.innerText;
+                    generateRoadmapBtn.innerText = '🤖 AI Analyzing Project...';
+                    generateRoadmapBtn.disabled = true;
+
+                    setTimeout(() => {
+                        generateRoadmapBtn.innerText = originalText;
+                        generateRoadmapBtn.disabled = false;
+                        
+                        // Calculate Split
+                        const perMilestone = (budget / count).toFixed(2);
+                        aiMilestoneList.innerHTML = ''; // Clear previous
+
+                        // Generate Mock AI Milestones
+                        const phases = ['Planning & Architecture', 'Core Development', 'Frontend Integration', 'Testing & QA', 'Deployment & Handoff'];
+
+                        for (let i = 0; i < count; i++) {
+                            const phaseName = phases[i] || `Milestone Phase ${i+1}`;
+                            const msDiv = document.createElement('div');
+                            msDiv.style.cssText = "padding: 1rem; border: 1px dashed var(--accent-cyan); border-radius: 8px; background: rgba(0,0,0,0.3);";
+                            msDiv.innerHTML = `
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <h4 style="color: #fff; margin: 0;">Milestone ${i+1}: ${phaseName}</h4>
+                                    <span style="color: var(--success); font-weight: bold;">$${perMilestone}</span>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Deliverables: Auto-generated criteria based on description analysis.</p>
+                            `;
+                            aiMilestoneList.appendChild(msDiv);
+                        }
+
+                        // Show the area
+                        aiGeneratedRoadmapArea.style.display = 'block';
+                    }, 1500);
+                });
+
+                applyRoadmapBtn.addEventListener('click', () => {
+                    alert("Roadmap Accepted! You can now propose a contract using this structure to any Freelancer.");
+                });
+            }
+
+        });
+    </script>
+</body>
+
+</html>
